@@ -1,0 +1,6 @@
+.azure
+src/TodoAPI/bin/
+src/TodoAPI/obj/
+
+Azure-Deployment-Guide.md
+next-steps.md
