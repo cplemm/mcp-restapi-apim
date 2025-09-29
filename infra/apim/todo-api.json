@@ -1,0 +1,307 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Todos",
+        "description": "A simple Todo API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/todos": {
+            "get": {
+                "tags": ["TodoItems"],
+                "summary": "/api/todos - GET",
+                "description": "gets a list of todo items",
+                "operationId": "apiTodosGet",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TodoItem"
+                                    }
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": null
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TodoItem"
+                                    }
+                                },
+                                "example": [{
+                                    "id": 0,
+                                    "name": "string",
+                                    "isComplete": true
+                                }]
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TodoItem"
+                                    }
+                                },
+                                "example": [{
+                                    "id": 0,
+                                    "name": "string",
+                                    "isComplete": true
+                                }]
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["TodoItems"],
+                "summary": "/api/todos - POST",
+                "description": "creates a new todo item",
+                "operationId": "apiTodosPost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TodoItem"
+                            },
+                            "example": {
+                                "id": 0,
+                                "name": "string",
+                                "isComplete": true
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TodoItem"
+                            },
+                            "example": {
+                                "id": 0,
+                                "name": "string",
+                                "isComplete": true
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TodoItem"
+                            },
+                            "example": {
+                                "id": 0,
+                                "name": "string",
+                                "isComplete": true
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TodoItem"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": null
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TodoItem"
+                                },
+                                "example": {
+                                    "id": 0,
+                                    "name": "string",
+                                    "isComplete": true
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TodoItem"
+                                },
+                                "example": {
+                                    "id": 0,
+                                    "name": "string",
+                                    "isComplete": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/todos/{id}": {
+            "get": {
+                "tags": ["TodoItems"],
+                "summary": "/api/todos/{id} - GET",
+                "description": "gets a todo item by its id",
+                "operationId": "apiTodosIdGet",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TodoItem"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": null
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TodoItem"
+                                },
+                                "example": {
+                                    "id": 0,
+                                    "name": "string",
+                                    "isComplete": true
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TodoItem"
+                                },
+                                "example": {
+                                    "id": 0,
+                                    "name": "string",
+                                    "isComplete": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["TodoItems"],
+                "summary": "/api/todos/{id} - PUT",
+                "description": "updates an existing todo item, specified by its unique id",
+                "operationId": "apiTodosIdPut",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TodoItem"
+                            },
+                            "example": {
+                                "id": 0,
+                                "name": "string",
+                                "isComplete": true
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TodoItem"
+                            },
+                            "example": {
+                                "id": 0,
+                                "name": "string",
+                                "isComplete": true
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TodoItem"
+                            },
+                            "example": {
+                                "id": 0,
+                                "name": "string",
+                                "isComplete": true
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["TodoItems"],
+                "summary": "/api/todos/{id} - DELETE",
+                "description": "delete a todo item, specified by its unique id",
+                "operationId": "apiTodosIdDelete",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "TodoItem": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "isComplete": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [{
+        "apiKeyHeader": []
+    }, {
+        "apiKeyQuery": []
+    }]
+}

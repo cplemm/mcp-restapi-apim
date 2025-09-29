@@ -2,6 +2,7 @@ metadata description = 'Create web app'
 
 param planName string
 param appName string
+param identityId string
 param serviceTag string
 param location string = resourceGroup().location
 param tags object = {}
@@ -25,6 +26,7 @@ module appServiceApiApp '../core/host/app-service/site.bicep' = {
   params: {
     name: appName
     location: location
+    identityId: identityId
     tags: union(tags, {
       'azd-service-name': serviceTag
     })

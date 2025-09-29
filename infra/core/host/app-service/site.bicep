@@ -1,6 +1,7 @@
 metadata description = 'Creates an Azure App Service site.'
 
 param name string
+param identityId string
 param location string = resourceGroup().location
 param tags object = {}
 
@@ -36,7 +37,7 @@ param allowedCorsOrigins string[] = []
 param enableSystemAssignedManagedIdentity bool = false
 
 @description('List of user-assigned managed identities. Defaults to an empty array.')
-param userAssignedManagedIdentityIds string[] = []
+param userAssignedManagedIdentityIds string[] = ['${identityId}']
 
 var linuxFxVersion = '${runtimeName}|${runtimeVersion}'
 
